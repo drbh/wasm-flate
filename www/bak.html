@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <div><input style="height:300px;width: 500px;" class="favorite styled" type="button" value="100 Compressed" id="comp">
+        </div>
+        <div><input style="height:300px;width: 500px;" class="favorite styled" type="button" value="100 Uncompressed" id="uncomp">
+        </div>
+    </div>
+    <script src="./bootstrap.js"></script>
+</body>
+<script type="text/javascript">
+var arrayToTable = function(data, options) {
+
+    "use strict";
+
+    var table = $('<table />'),
+        thead,
+        tfoot,
+        rows = [],
+        row,
+        i,
+        j,
+        defaults = {
+            th: true, // should we use th elemenst for the first row
+            thead: false, //should we incldue a thead element with the first row
+            tfoot: false, // should we include a tfoot element with the last row
+            attrs: {} // attributes for the table element, can be used to
+        };
+
+    options = $.extend(defaults, options);
+
+    table.attr(options.attrs);
+
+    // loop through all the rows, we will deal with tfoot and thead later
+    for (i = 0; i < data.length; i = i + 1) {
+        row = $('<tr />');
+        for (j = 0; j < data[i].length; j = j + 1) {
+            if (i === 0 && options.th) {
+                row.append($('<th />').html(data[i][j]));
+            } else {
+                row.append($('<td />').html(data[i][j]));
+            }
+        }
+        rows.push(row);
+    }
+
+    // if we want a thead use shift to get it
+    if (options.thead) {
+        thead = rows.shift();
+        thead = $('<thead />').append(thead);
+        table.append(thead);
+    }
+
+    // if we want a tfoot then pop it off for later use
+    if (options.tfoot) {
+        tfoot = rows.pop();
+    }
+
+    // add all the rows
+    for (i = 0; i < rows.length; i = i + 1) {
+        table.append(rows[i]);
+    }
+
+    // and finally add the footer if needed
+    if (options.tfoot) {
+        tfoot = $('<tfoot />').append(tfoot);
+        table.append(tfoot);
+    }
+
+    return table;
+};
+
+var N = 3
+
+
+$("#comp").click(function() {
+    a = []
+    var total_time_sending = 0
+    var total_data = 0
+    var total_time = 0
+    var count = 0
+    for (var i = 0; i < N; i++) {
+        console.log(i)
+        var res = compressed()
+        b = Object.values(res)
+        total_time_sending += b[0]
+        total_data += b[1]
+        total_time += b[2]
+        count += 1
+        a.push(b)
+    }
+    c = {
+        "type": "compressed",
+        "total_time_sending": total_time_sending,
+        "total_data": total_data,
+        "total_time": total_time,
+        "i": count
+    }
+    console.log(a, c)
+
+    var table = arrayToTable(a, {
+        thead: true,
+        attrs: { class: 'table' }
+    })
+    $('body').append(JSON.stringify(c));
+    $('body').append(table);
+
+});
+
+$("#uncomp").click(function() {
+    a = []
+    var total_time_sending = 0
+    var total_data = 0
+    var total_time = 0
+    var count = 0
+    for (var i = 0; i < N; i++) {
+        var res = uncompressed()
+        b = Object.values(res)
+        total_time_sending += b[0]
+        total_data += b[1]
+        total_time += b[2]
+        count += 1
+        a.push(b)
+    }
+    c = {
+        "type": "uncompressed",
+        "total_time_sending": total_time_sending,
+        "total_data": total_data,
+        "total_time": total_time,
+        "i": count
+    }
+    console.log(a, c)
+
+    $('body').append(JSON.stringify(c));
+    var table = arrayToTable(a, {
+        thead: true,
+        attrs: { class: 'table' }
+    })
+
+    $('body').append(table);
+
+});
+
+var compressed = function() {
+    var dec_start_time = new Date().getTime();
+    record = {
+        // "start": dec_start_time,
+    }
+    var settings = {
+        "async": false,
+        "crossDomain": true,
+        "url": "http://192.168.1.11:5000/comp",
+        "method": "GET",
+        "headers": {}
+    }
+
+    $.ajax(settings).done(function(response) {
+        record["req-time"] = new Date().getTime() - dec_start_time;
+        record["req-size"] = response.length
+        var og = window.decompress(response);
+        // console.log(og)
+        record["final-time"] = new Date().getTime() - dec_start_time;
+        record["final-size"] = og.length
+        // console.log(record)
+    });
+    return record
+}
+
+var uncompressed = function() {
+    var start_time = new Date().getTime();
+    record = {
+        // "start": start_time,
+    }
+    var settings = {
+        "async": false,
+        "crossDomain": true,
+        "url": "http://192.168.1.11:5000/orig",
+        "method": "GET",
+        "headers": {}
+    }
+
+    $.ajax(settings).done(function(response) {
+        record["req-time"] = new Date().getTime() - start_time;
+        record["req-size"] = response.length
+        var request_time = new Date().getTime() - start_time;
+        record["final-time"] = new Date().getTime() - start_time;
+        record["final-size"] = response.length
+        // console.log(record)
+    });
+    return record
+}
+</script>
+
+</html>
