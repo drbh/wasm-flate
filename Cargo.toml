@@ -1,6 +1,6 @@
 [package]
 name = "wasm-flate"
-version = "0.1.0"
+version = "0.1.1-alpha"
 authors = ["David Holtz <david.richard.holtz@gmail.com>"]
 edition = "2018"
 
