@@ -1,5 +1,17 @@
 # 🦀🕸️ wasm-flate  
-Superfast compression and decompression in the browser.
+
+The fastest compression and decompression in the browser.
+
+Installation
+```
+npm i wasm-flate
+```
+or you can use the dev pre compiled files at (this is unstable and may not be maintained)
+```
+<script src="https://compiled-wasm-flate.s3.amazonaws.com/bootstrap.js"></script>
+```
+
+# Why use `wasm-flate`
 
 ## WASM npm library for fast (de)compression
 
@@ -27,7 +39,15 @@ Pass a string or Uint8Array to the compression function you choose. The contents
 #### Decompress
 Pass a base64 string of the compressed data and it will return a base64 decompressed value.  
 
-# Example
+### Compared to Pako
+
+Test `pako` vs `wasm-flate` in your browsers [here](http://wasm-flate.s3-website-us-east-1.amazonaws.com/)
+
+![image](images/compare.png)
+
+In Chrome on my MacBook Pro, we see that pako takes about 143 ms where `wasm-flate` only takes about 21 ms. This is 6.8x faster.  
+
+# Example Node use
 
 ```javascript
 var flate = require('wasm-flate');
@@ -78,3 +98,29 @@ output:
   ], "..."
 }
 ```
+
+# Building with Rust
+
+In order to build the wasm files with Rust, you'll need to clone the repo and run `wasm-pack` with `nodejs` as the target. This will create a set of files in `pkg` that can be used as a node module. 
+
+```
+git clone https://github.com/drbh/wasm-flate.git
+cd wasm-flate
+wasm-pack build --target nodejs
+```
+
+You should have the following new files  
+```
+pkg/
+├── LICENSE-APACHE
+├── LICENSE-MIT
+├── README.md
+├── wasm-flate.d.ts
+├── wasm-flate.js
+├── wasm-flate_bg.d.ts
+├── wasm-flate_bg.js
+├── wasm-flate_bg.wasm
+└── package.json
+```
+
+
