@@ -8,17 +8,11 @@
 
 <body>
     <h1>Compressing Data in the Browser</h1>
-    <p>In order to test the compression please toggle the
+    <p>In order to test the compression please toggle the switches</p>
         <div id="app">
-            <!-- <switch-button v-model="switch1">Lorem ipsum dolor sit amet</switch-button> -->
             <switch-button v-model="switch2" color="#F5BF21"> GZIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</switch-button>
             <switch-button v-model="switch3" color="#253DB9"> ZLIB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</switch-button>
             <switch-button v-model="switch4" color="#2CD63B"> DEFLATE&nbsp;&nbsp;</switch-button>
-            <!-- <switch-button v-model="switch5" color="#F53731">I agree to give my soul to the Devil<br><small>(a transfert fee may apply)</small></switch-button> -->
-            <!--         <div class="bottom-message">
-            <span v-if="!(switch1 && switch2 && switch3 && switch4)">Please say yes to everything before proceeding</span>
-            <span v-else>Thank you!</span>
-        </div> -->
         </div>
         <template id="switch-button">
             <div class="switch-button-control">
