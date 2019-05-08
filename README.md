@@ -11,7 +11,7 @@ The fastest compression and decompression in the browser.
 npm i wasm-flate
 ```
 
-[Documentation](https://github.com/drbh/wasm-flate/blob/master/README.md)
+[Documentation](https://github.com/drbh/wasm-flate/blob/master/DOCS.md)
 
 ### Compared to Pako
 
