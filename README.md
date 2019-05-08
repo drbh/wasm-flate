@@ -1,5 +1,9 @@
 # 🗜️⚡ wasm-flate  
 
+
+[![npm version](https://badge.fury.io/js/wasm-flate.svg)](https://badge.fury.io/js/wasm-flate)
+[![dependencies Status](https://david-dm.org/dwyl/esta/status.svg)](https://david-dm.org/dwyl/esta)
+
 The fastest compression and decompression in the browser.
 
 ## Installation
