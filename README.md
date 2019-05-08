@@ -130,3 +130,6 @@ pkg/
 ```
 
 
+### Donate Here
+If you found `wasm-flate` useful feel free to buy me a beer 🍺 or two 😀  
+`BTC - 3QVK6D5QCZDSyLzFL3ZbELokyuSprRQQZF`
