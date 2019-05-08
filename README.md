@@ -111,6 +111,14 @@ var decomp = flate.deflate_decode_raw(comp)
 JSON.stringify(data) === JSON.stringify(decomp) 
 ```
 
+## Example Browser Usage
+
+Just load the following script tag into your html page. You should have access to flate in the console now.
+```html
+<script src="https://unpkg.com/wasm-flate@0.1.11-alpha/dist/bootstrap.js"></script>
+```
+
+
 # Building with Rust 🦀🕸️ 
 
 In order to build the wasm files with Rust, you'll need to clone the repo and run `wasm-pack` with `nodejs` as the target. This will create a set of files in `pkg` that can be used as a node module. 
