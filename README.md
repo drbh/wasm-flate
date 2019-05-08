@@ -95,6 +95,16 @@ output:
 }
 ```
 
+### Dealing with RAW data
+
+```javascript
+var flate = require('wasm-flate');
+var data = new Uint8Array( Buffer.from('David Richard Blyn Holtz') );
+var comp = flate.deflate_encode_raw(data)
+var decomp = flate.deflate_decode_raw(comp)
+JSON.stringify(data) === JSON.stringify(decomp) 
+```
+
 # Building with Rust 🦀🕸️ 
 
 In order to build the wasm files with Rust, you'll need to clone the repo and run `wasm-pack` with `nodejs` as the target. This will create a set of files in `pkg` that can be used as a node module. 
