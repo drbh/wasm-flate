@@ -8,17 +8,31 @@
 The fastest compression and decompression in the browser.
 
 ## Installation
+
+Load it into node
 ```
 npm i wasm-flate
 ```
 
-## Info
+Or use it in you HTML page with the precompiled CDN version
+```html
+<script src="https://unpkg.com/wasm-flate@0.1.11-alpha/dist/bootstrap.js"></script>
+```
+
+### For server side code 
+check out the examples for code to decompress data in Python, Node and Go on the server side
+
+## Resources
 [Docs](https://github.com/drbh/wasm-flate/blob/master/DOCS.md) - get API reference and flate functions.  
 
 [Examples](https://github.com/drbh/wasm-flate-examples) - Examples compressing in browser, sending to node server and decompressing... really fast!  
 
+## Example Screenshot
 
-### Compared to Pako
+![File Upload and Compress UI](https://raw.githubusercontent.com/drbh/wasm-flate-examples/master/images/fileinput.png)
+
+
+### Compared to JS implementation (pako)
 
 Test `pako` vs `wasm-flate` in your browsers [here](http://wasm-flate.s3-website-us-east-1.amazonaws.com/)
 
@@ -55,9 +69,6 @@ Pass a string or Uint8Array to the compression function you choose. The contents
 Pass a base64 string of the compressed data and it will return a base64 decompressed value.  
 
 
-![File Upload and Compress UI](https://raw.githubusercontent.com/drbh/wasm-flate-examples/master/images/fileinput.png)
-
-
 # Example Node use
 
 ```javascript
@@ -68,7 +79,21 @@ var compressed_data = flate.zlib_encode(data)
 var original_data = flate.zlib_decode(compressed_data)
 ```
 
+### Full Use Example
+
+This will read in the string as a u8array, compress, decompress and compare the output with the original value. This show cases all the main uses of `wasm-flate`  
+
+```javascript
+var flate = require('wasm-flate');
+var data = new Uint8Array( Buffer.from('wasm-flate is awesome!') );
+var comp = flate.deflate_encode_raw(data)
+var decomp = flate.deflate_decode_raw(comp)
+JSON.stringify(data) === JSON.stringify(decomp) 
+```
+
 ### Compressing Data
+
+Here we can see how to compress data as a string, and it will return a base64 encoded compressed value.  
 
 ```javascript
 var data = "THIS IS EXAMPLE DATA TO COMPRESS"
@@ -93,7 +118,8 @@ var compressed_data = flate.deflate_encode(data)
 ```javascript
 var original_data = flate.zlib_decode("eNrtlEtOAzEMhvc9RTXrLpw4jmMu0EMgFk7GQQjRSjCgSlXvThgG1KpqeUgskOpN/Ppt61tkO5vPu14H7a7m2+a3aHjU3p5afD3G8yk/1vRh/bwalja0cuco+kARE/lucdRz92JjEzgiiZEAE0y23337Pgs2xbhCzOo5o5GnUvpamrSYSotbrooztQPxtAQ2Kk6sFvbcjvK+AHt1JMFqnzU5TqoYoU/76mF9b6vlx36DzOK5BK0eOVLJ5NAFBQPyTiUGqmBejyd8HgHftG6asFt8QVgkCgglCKcBMzI7hCRB4t/xdQYphkwxclOElBO7LD2IQ8SqVjBgqLH+N77nuPoLzx/zxOTPMqWAGC5cf/sP4Gm2Cbj9ANzYBrzwPeQ7vjezN2/3Cpfxnx4=")
 ```
-output:  
+
+The folowing output is some compressed JSON of ECR20 tokens traded on a DEX (the data used is arbitrary!)  
 ```json
 {
   "data": {
@@ -110,25 +136,32 @@ output:
 }
 ```
 
-### Dealing with RAW data
+# Contributing
 
-```javascript
-var flate = require('wasm-flate');
-var data = new Uint8Array( Buffer.from('David Richard Blyn Holtz') );
-var comp = flate.deflate_encode_raw(data)
-var decomp = flate.deflate_decode_raw(comp)
-JSON.stringify(data) === JSON.stringify(decomp) 
-```
+## Rough Roadmap
 
-## Example Browser Usage
+- [X] Compile compression to WASM  
+- [X] Build useful functions for compression  
+- [X] Compile useful functions to WASM  
+- [X] Publish NPM package of WASM files and JS shim  
+- [X] Add new functions for u8Array support  
+- [X] Add basic API docs  
+- [X] Write short medium article  
+- [X] Compare with Native JS example  
+- [X] Add node server side example  
+- [X] Add Python server side example  
+- [X] Make logo for lib based on WASM colorway  
+- [ ] Deploy to WAPM  
+- [ ] Add Golang example  
+- [ ] Add benchmarking suite   
+- [ ] Deploy multi file example  
+- [ ] Release solid roadmap  
+- [ ] Releae update schedule  
+- [ ] Find partner for case study  
 
-Just load the following script tag into your html page. You should have access to flate in the console now.
-```html
-<script src="https://unpkg.com/wasm-flate@0.1.11-alpha/dist/bootstrap.js"></script>
-```
 
 
-# Building with Rust 🦀🕸️ 
+## Building with Rust 🦀🕸️ 
 
 In order to build the wasm files with Rust, you'll need to clone the repo and run `wasm-pack` with `nodejs` as the target. This will create a set of files in `pkg` that can be used as a node module. 
 
@@ -153,6 +186,6 @@ pkg/
 ```
 
 
-### Donate Here
+## Donate Here
 If you found `wasm-flate` useful feel free to buy me a beer 🍺 or two 😀  
 `BTC - 3QVK6D5QCZDSyLzFL3ZbELokyuSprRQQZF`
