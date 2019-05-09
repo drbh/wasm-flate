@@ -1,5 +1,6 @@
 # 🗜️⚡ wasm-flate  [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=The%20fastest%20compression%20library%20in%20your%20browser.&url=https://github.com/drbh/wasm-flate&hashtags=wasm,js,webdev,rust,compression)
 
+<img src="https://raw.githubusercontent.com/drbh/wasm-flate/master/images/wasm-flate.png" width="320" />
 
 [![npm version](https://badge.fury.io/js/wasm-flate.svg)](https://badge.fury.io/js/wasm-flate)
 [![dependencies Status](https://david-dm.org/dwyl/esta/status.svg)](https://david-dm.org/dwyl/esta)
@@ -7,7 +8,7 @@
 The fastest compression and decompression in the browser.
 
 ## Installation
-```bash
+```
 npm i wasm-flate
 ```
 
@@ -52,6 +53,10 @@ Pass a string or Uint8Array to the compression function you choose. The contents
 
 #### Decompress
 Pass a base64 string of the compressed data and it will return a base64 decompressed value.  
+
+
+![File Upload and Compress UI](https://raw.githubusercontent.com/drbh/wasm-flate-examples/master/images/fileinput.png)
+
 
 # Example Node use
 
