@@ -9,9 +9,14 @@ The fastest compression and decompression in the browser.
 
 ## Installation
 
-Load it into node
+Using `NPM`
 ```
 npm i wasm-flate
+```
+
+Using `WAPM`
+```
+wapm install drbh/flate
 ```
 
 Or use it in you HTML page with the precompiled CDN version
