@@ -179,16 +179,16 @@ wasm-pack build --target nodejs
 
 You should have the following new files  
 ```
-pkg/
-├── LICENSE-APACHE
-├── LICENSE-MIT
-├── README.md
-├── wasm-flate.d.ts
-├── wasm-flate.js
-├── wasm-flate_bg.d.ts
-├── wasm-flate_bg.js
-├── wasm-flate_bg.wasm
-└── package.json
+pkg/    
+├── LICENSE-APACHE    
+├── LICENSE-MIT    
+├── README.md    
+├── wasm-flate.d.ts    
+├── wasm-flate.js    
+├── wasm-flate_bg.d.ts    
+├── wasm-flate_bg.js    
+├── wasm-flate_bg.wasm    
+└── package.json    
 ```
 
 

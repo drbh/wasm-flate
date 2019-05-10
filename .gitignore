@@ -6,3 +6,5 @@ pkg/
 wasm-pack.log
 data/
 www/
+
+wapm_packages

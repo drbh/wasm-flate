@@ -1,0 +1,10 @@
+[package]
+name = "drbh/flate"
+version = "0.1.0"
+description = "🗜️⚡Compress files on the client side super fast using WASM. Supports GZIP, ZLIB and DEFLATE compression and decompression"
+readme = "README.md"
+repository = "https://github.com/drbh/wasm-flate"
+
+[[module]]
+name = "flate"
+source = "pkg/wasm_flate_bg.wasm"
