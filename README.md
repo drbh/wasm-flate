@@ -164,7 +164,7 @@ Taking file size and network speed into account we can rewrite the above formula
                                 )
 ```
 
-We can simpilfy our equation by attesting that we can compress and decompress at the same speed (they're roughtly equal). We also have to guess the compressed file size relative to it's original size and add a variable to evaluate that. 
+We can simpilfy our equation by attesting that we can compress and decompress at the same speed (they're roughly equal). We also have to guess the compressed file size relative to it's original size and add a variable to evaluate that. 
 
 Next we port these psuedo equations into Python code and make for a simple calculator - this will tell us how many seconds we'll save on a specific file sent over a specific network. We will need to input the size of file to send in MBs, the compression ratio to full size, the compression speed in MB/s and the network speed in MB/s *not Mbps*.  
 
