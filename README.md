@@ -140,7 +140,7 @@ The folowing output is some compressed JSON of ECR20 tokens traded on a DEX (the
   ], "..."
 }
 ```
-# Mathamtical Reasoning and Calculator
+# Mathematical Reasoning and Calculator
 
 We can prove if sending compressed data is worth the incurred computational time by performing a simple calculation.
 
