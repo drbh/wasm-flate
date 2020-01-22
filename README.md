@@ -8,6 +8,10 @@
 
 The fastest compression and decompression in the browser.
 
+## Docs
+
+[Documentation](https://drbh.github.io/wasm-flate/)
+
 
 ## Donate Here
 If you found `wasm-flate` useful feel free to buy me a beer 🍺 or two 😀  

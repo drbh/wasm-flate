@@ -1,5 +1,44 @@
+# wasm-flate
+
+<img src="https://raw.githubusercontent.com/drbh/wasm-flate/master/images/wasm-flate.png" width="320" />
+
+[![npm version](https://badge.fury.io/js/wasm-flate.svg)](https://badge.fury.io/js/wasm-flate)
+[![dependencies Status](https://david-dm.org/dwyl/esta/status.svg)](https://david-dm.org/dwyl/esta)
 
 
+# Why use `wasm-flate`
+
+## WASM npm library for fast (de)compression
+
+- Uses WASM  
+- As fast as C or Rust implementation  
+- Works in all browsers  
+- Runs on server side
+- GZIP supported  
+- ZLIB supported  
+- DELFATE supported  
+
+### Uses
+- Shipping compressed data from server and decompress in browser
+- Shipping compressed data to server by compressing in browser
+- Better UX for mobile (fast decompress - slow data fetch)
+- Better UX for people with sparse networks   
+- Less resource use on server side  
+- Decreased storage need  
+- Leveraging growing WASM ecosystem  
+
+This package allows you to quickly compress and decompress data in the browser. The process is simple and optmized to execute as fast as your browser can run.
+
+#### Compress
+Pass a string or Uint8Array to the compression function you choose. The contents will be compressed and encoded to base64. The returned value will be a base64 encoded string.
+
+#### Decompress
+Pass a base64 string of the compressed data and it will return a base64 decompressed value.  
+
+
+### Topics
+- [contributing](./developer.md)
+- [reasoning](./reasoning.md)
 
 
 # Server side
@@ -23,9 +62,7 @@ wapm run flate_basic "hello world"
 ```
 
 ### Topics 
-- Using CLI app
-- WAPM installation
-- Integratation into code (Node, Go, Rust...)
+- [WAPM installation](./node.md)
 
 
 # Client side
@@ -56,9 +93,9 @@ wasm-pack build --target bundler -- --features "browser"
 ```
 
 ### Topics 
-- Comparing with pako
-- Packaging with 
-
+- [Comparing with pako](./comparision.md)
+- [Using in browser](./browser.md)
+- [Using in node](./node.md)
 
 ## Donate Here
 If you found `wasm-flate` useful feel free to buy me a beer 🍺 or two 😀  
