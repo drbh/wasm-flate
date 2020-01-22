@@ -1,7 +1,6 @@
 target/
 **/*.rs.bk
 Cargo.lock
-bin/
 pkg/
 wasm-pack.log
 data/
@@ -15,3 +14,12 @@ quote.txt
 wapm.lock
 
 build_and_minify.sh
+
+.appveyor.yml
+.cargo-ok
+.travis.yml
+package.json
+
+tests
+
+src/utils.rs
