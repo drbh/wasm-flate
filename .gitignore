@@ -8,3 +8,10 @@ data/
 www/
 
 wapm_packages
+python-wapm-example
+go-wasi-example
+
+quote.txt
+wapm.lock
+
+build_and_minify.sh
