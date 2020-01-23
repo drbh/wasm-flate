@@ -18,7 +18,7 @@ build_and_minify.sh
 .appveyor.yml
 .cargo-ok
 .travis.yml
-package.json
+# package.json
 
 tests
 

@@ -8,6 +8,8 @@
 
 # Why use `wasm-flate`
 
+![image](https://raw.githubusercontent.com/drbh/wasm-flate/master/images/compare.png)
+
 ## WASM npm library for fast (de)compression
 
 - Uses WASM  
@@ -61,9 +63,6 @@ wapm install drbh/flate
 wapm run flate_basic "hello world"
 ```
 
-### Topics 
-- [WAPM installation](./node.md)
-
 
 # Client side
 
@@ -74,26 +73,26 @@ This Javascript file can be generated for a varity of targets. We can build with
 
 ### Build for ES6
 ```bash
-wasm-pack build -- --features "browser"
+wasm-pack build -- --features "browser strings"
 ```
 
 ### Build for NodeJS
 ```bash
-wasm-pack build --target nodejs -- --features "browser"
+wasm-pack build --target nodejs -- --features "browser strings"
 ```
 
 ### Build for browser
 ```bash
-wasm-pack build --target no-modules -- --features "browser"
+wasm-pack build --target no-modules -- --features "browser strings"
 ```
 
 ### Build for bundler
 ```bash
-wasm-pack build --target bundler -- --features "browser"
+wasm-pack build --target bundler -- --features "browser strings"
 ```
 
 ### Topics 
-- [Comparing with pako](./comparision.md)
+- [Comparing with pako](./comparison.md)
 - [Using in browser](./browser.md)
 - [Using in node](./node.md)
 
