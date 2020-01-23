@@ -1,4 +1,5 @@
-# 🗜️⚡ wasm-flate <img src="https://img.shields.io/github/stars/drbh/wasm-flate.svg" /> [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=The%20fastest%20compression%20library%20in%20your%20browser.&url=https://github.com/drbh/wasm-flate&hashtags=wasm,js,webdev,rust,compression) 
+# 🗜️⚡ wasm-flate <img src="https://img.shields.io/github/stars/drbh/wasm-flate.svg" /> [![wapm version](https://wapm.io/package/drbh/flate/badge.svg?style=flat)](https://wapm.io/package/drbh/flate)
+ [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=The%20fastest%20compression%20library%20in%20your%20browser.&url=https://github.com/drbh/wasm-flate&hashtags=wasm,js,webdev,rust,compression) 
 
 
 <img src="https://raw.githubusercontent.com/drbh/wasm-flate/master/images/wasm-flate.png" width="320" />
